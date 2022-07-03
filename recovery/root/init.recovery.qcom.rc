@@ -1,5 +1,12 @@
 import /init.recovery.qcom_decrypt.rc
 
+service overrideprops /system/bin/overrideprops.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     # Create location for fs_mgr to store abbreviated output from filesystem
@@ -15,5 +22,7 @@ on fs
     start boot-hal-1-1
 
 on boot
+    start overrideprops
     start health-hal-2-1
     setprop sys.usb.config adb
+
