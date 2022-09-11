@@ -111,7 +111,6 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 TW_LOAD_VENDOR_MODULES := "goodix_core.ko focaltech_touch.ko"
 
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libandroidicu \
     libdisplayconfig.qti \
     libion \
     vendor.display.config@1.0 \
@@ -123,9 +122,6 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
-
-PRODUCT_COPY_FILES += \
-    $(OUT_DIR)/target/product/renoir/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
 
 PRODUCT_PACKAGES += \
     qcom_decrypt \
